@@ -1,0 +1,77 @@
+<div id="tableContainer">
+  <div
+    class="normalText"
+    [ngClass]="{
+      'firstPlace': columnPlayer.place === 1,
+      'secondPlace': columnPlayer.place === 2,
+      'thirdPlace': columnPlayer.place === 3
+    }"
+  >
+    <span *ngIf="columnPlayer.place"> {{ columnPlayer.place }}.</span>
+    {{ columnPlayer.name }}
+  </div>
+  <div class="normalText" (click)="cellClicked(0)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[0] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(1)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[1] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(2)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[2] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(3)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[3] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(4)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[4] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(5)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[5] }}
+  </div>
+  <div class="boldText">
+    {{ columnPlayer.points[6] }}
+  </div>
+  <div class="boldText">
+    {{ columnPlayer.points[7] }}
+  </div>
+  <div class="boldText">
+    {{ columnPlayer.points[8] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(9)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[9] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(10)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[10] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(11)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[11] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(12)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[12] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(13)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[13] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(14)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[14] }}
+  </div>
+  <div class="normalText" (click)="cellClicked(15)" [ngClass]="{ 'clickable': player.id === columnPlayer.id && game.playerTurn === player.id}">
+    {{ columnPlayer.points[15] }}
+  </div>
+  <div class="boldText">
+    {{ columnPlayer.points[16] }}
+  </div>
+  <div class="boldText">
+    {{ columnPlayer.points[17] }}
+  </div>
+  <div
+    class="extraBoldText"
+    [ngClass]="{
+      'firstPlace': columnPlayer.place === 1,
+      'secondPlace': columnPlayer.place === 2,
+      'thirdPlace': columnPlayer.place === 3
+    }"
+  >
+    {{ columnPlayer.points[18] }}
+  </div>
+</div>
