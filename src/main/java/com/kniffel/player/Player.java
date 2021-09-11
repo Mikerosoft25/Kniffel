@@ -9,6 +9,8 @@ public class Player {
     private boolean host;
     private Integer[] points = new Integer[19];
     private Integer place;
+    private String sessionId;
+    private boolean connected = true;
 
     public Player() {
         points[6] = 0;
@@ -80,6 +82,22 @@ public class Player {
         this.place = place;
     }
 
+    public String getSessionId() {
+        return this.sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public boolean isConnected() {
+        return this.connected;
+    }
+
+    public void setConnected(boolean connected) {
+        this.connected = connected;
+    }
+
     public void resetPoints(){
         this.place = null;
 
@@ -119,5 +137,19 @@ public class Player {
         points[16] = sumBottom;
         points[17] = points[8];
         points[18] = sumBottom + sumTop;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", gameId=" + gameId +
+                ", host=" + host +
+                ", points=" + Arrays.toString(points) +
+                ", place=" + place +
+                ", sessionId='" + sessionId + '\'' +
+                ", connected=" + connected +
+                '}';
     }
 }

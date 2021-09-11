@@ -9,5 +9,4 @@ public class KniffelApplication {
     public static void main(String[] args) {
         SpringApplication.run(KniffelApplication.class, args);
     }
-
 }

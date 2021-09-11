@@ -7,6 +7,7 @@ public enum StatusMessage {
     WRONG_PLAYER_DICE_CLICK ("Player that is not at turn clicked dice"),
     WRONG_PLAYER_CELL_CLICK ("Player that is not at turn clicked cell"),
     WRONG_COLUMN_CLICK ("Player clicked the column of another player"),
+    PLAYER_NEEDS_TO_ROLL ("RollCount is still 3"),
     NO_MORE_ROLLS ("RollCount is 0"),
     GAME_ENDED ("Game ended at round 14"),
     GAME_ALREADY_STARTED ("Game already started"),

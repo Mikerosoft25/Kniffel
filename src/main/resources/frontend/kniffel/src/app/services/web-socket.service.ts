@@ -99,6 +99,12 @@ export class WebSocketService {
           this.player.id = gameResponse.players.length - 1;
         }
 
+        for (let player of gameResponse.players) {
+          if (player.id == this.player.id && player.host) {
+            this.player.host = true;
+          }
+        }
+
         this.game.next(gameResponse);
 
         console.log(gameResponse);
@@ -142,7 +148,7 @@ export class WebSocketService {
   }
 
   handleStatusMessage(statusMessage: string) {
-    let message: string;
+    let message: string = "ERROR_NO_MESSAGE";
 
     if (statusMessage === "GAME_NOT_FOUND") {
       message = "Das Spiel konnte nicht gefunden werden!"
@@ -168,8 +174,8 @@ export class WebSocketService {
       message = "Wähle ein freies Feld um Punkte einzutragen!";
     } else if (statusMessage === "NOT_HOST_TRIES_START") {
       message = "Nur der Host kann das Spiel starten!";
-    } else {
-      message = "ERROR_NO_MESSAGE"
+    } else if (statusMessage == "PLAYER_NEEDS_TO_ROLL")  {
+      message = "Du musst erst würfeln bevor du Punkte eintragen kannst!";
     }
 
     return message;

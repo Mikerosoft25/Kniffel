@@ -1,5 +1,6 @@
 package com.kniffel.game;
 
+import com.kniffel.player.Player;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -20,5 +21,21 @@ public class GameRepository {
         nextGameId = (nextGameId + 1 > 99999) ? 10000 : nextGameId + 1;
 
         return game;
+    }
+
+    public Game findByPlayerSessionId(String sessionId) {
+        for (Game game : games.values()) {
+            for (Player player : game.getPlayers()) {
+                if (player.getSessionId().equals(sessionId)) {
+                    return game;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public boolean removeGameById(Integer id) {
+        return games.remove(id) != null;
     }
 }

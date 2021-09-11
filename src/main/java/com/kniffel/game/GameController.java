@@ -3,13 +3,21 @@ package com.kniffel.game;
 import com.kniffel.general.Request;
 import com.kniffel.general.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpAttributesContextHolder;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.socket.messaging.SessionConnectedEvent;
+import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Controller
 public class GameController {
+
+    @Autowired
+    private SimpMessagingTemplate simpMessagingTemplate;
 
     @Autowired
     private GameService gameService;
@@ -60,5 +68,10 @@ public class GameController {
     @SendTo("/topic/game/{gameId}")
     public Response<Game> restartGame(Request request) {
         return this.gameService.restartGame(request);
+    }
+
+    @EventListener
+    public void onPlayerDisconnectEvent(SessionDisconnectEvent event) {
+        this.gameService.disconnectPlayer(event.getSessionId());
     }
 }

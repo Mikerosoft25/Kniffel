@@ -20,7 +20,7 @@
 <div id="gameTableContainer">
   <app-table-definition-column></app-table-definition-column>
   <ng-container *ngFor="let columnPlayer of players">
-    <app-table-player-column [columnPlayer]="columnPlayer" [player]="player" [game]="game"></app-table-player-column>
+    <app-table-player-column *ngIf="columnPlayer.connected" [columnPlayer]="columnPlayer" [player]="player" [game]="game"></app-table-player-column>
   </ng-container>
 </div>
 

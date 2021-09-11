@@ -10,8 +10,10 @@
       <button [disabled]="!player.host" (click)="startGame()">Spiel starten</button>
     </div>
   </div>
-  <app-player-list *ngFor="let player of players" [player]="player"></app-player-list>
-<!--  <app-player-list></app-player-list>-->
+  <div *ngFor="let player of players">
+    <app-player-list *ngIf="player.connected" [player]="player"></app-player-list>
+  </div>
+<!--  <app-player-list *ngFor="let player of players" [player]="player"></app-player-list>-->
 </div>
 
 <!--<div id="lobbyContainer">-->

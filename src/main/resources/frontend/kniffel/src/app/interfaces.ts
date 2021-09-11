@@ -16,7 +16,9 @@ export interface Player {
   gameId?: number,
   host?: boolean,
   points?: number[],
-  place?: number
+  place?: number,
+  sessionId?: string,
+  connected?: boolean
 }
 
 export interface Dice {

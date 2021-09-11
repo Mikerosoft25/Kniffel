@@ -104,6 +104,8 @@ public class Game {
         this.playerTurn = (playerTurn + 1) % getPlayerCount();
         this.rollCount = 3;
 
+        System.out.println("round: " + this.roundCount);
+
         if (this.playerTurn == 0) {
             this.roundCount++;
 
@@ -126,6 +128,11 @@ public class Game {
 
         for (Dice dice: dices) {
             dice.setLocked(false);
+        }
+
+        // skipping the next player if he is not connected anymore
+        if (!this.getPlayers().get(playerTurn).isConnected()) {
+            setNextPlayerTurn();
         }
     }
 
