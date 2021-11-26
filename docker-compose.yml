@@ -1,0 +1,34 @@
+version: '3'
+
+networks:
+  kniffelbridge:
+    driver: bridge
+
+services:
+  kniffel-java:
+    build:
+      context: "java"
+      dockerfile: "Dockerfile"
+    image: "kniffel-java"
+    container_name: "kniffel-java-container"
+    networks:
+      - kniffelbridge
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+
+  kniffel-angular:
+    build:
+      context: "angular"
+      dockerfile: "Dockerfile"
+    image: "kniffel-angular"
+    container_name: "kniffel-angular-container"
+    networks:
+      - kniffelbridge
+    ports:
+      - "4200:80"
+    expose:
+      - "80"
+    depends_on:
+      - kniffel-java
