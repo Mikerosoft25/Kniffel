@@ -11,7 +11,7 @@
     <groupId>com</groupId>
     <artifactId>kniffel</artifactId>
     <version>0.0.1</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>kniffel</name>
     <description>Kniffel application</description>
     <properties>
@@ -55,7 +55,7 @@
                 </executions>
                 <configuration>
                     <executable>ng</executable>
-                    <workingDirectory>src/main/resources/frontend/kniffel</workingDirectory>
+                    <workingDirectory>../angular</workingDirectory>
                     <arguments>
                         <argument>build</argument>
                     </arguments>
