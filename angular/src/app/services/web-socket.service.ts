@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as SockJS from "sockjs-client";
-import {Stomp} from "@stomp/stompjs";
-import {Subject} from "rxjs";
-import {Dice, Game, Player, TableCell} from "../interfaces";
+import { Stomp } from "@stomp/stompjs";
+import { Subject } from "rxjs";
+import { Dice, Game, Player, TableCell } from "../interfaces";
 import { v4 as uuidv4 } from "uuid";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class WebSocketService {
   public gameId: number;
   public player: Player;
   private UUID: any;
+  private API_URL = environment.API_URL;
 
   private stompClient : any = null;
 
@@ -27,7 +29,7 @@ export class WebSocketService {
   }
 
   connect(): void {
-    const socket = new SockJS('http://localhost:8080/kniffel');
+    const socket = new SockJS(this.API_URL);
     this.stompClient = Stomp.over(socket);
     this.stompClient.connect({}, function (frame: any) {
       console.log('Connected: ' + frame);
