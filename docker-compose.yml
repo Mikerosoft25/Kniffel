@@ -15,8 +15,6 @@ services:
       - kniffelbridge
     ports:
       - "8080:8080"
-    expose:
-      - "8080"
 
   kniffel-angular:
     build:
@@ -28,7 +26,5 @@ services:
       - kniffelbridge
     ports:
       - "4200:80"
-    expose:
-      - "80"
     depends_on:
       - kniffel-java
