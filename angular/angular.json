@@ -20,7 +20,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/",
             "outputPath": "dist/kniffel",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -56,7 +55,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "./kniffel/",
               "outputHashing": "all"
             },
             "development": {
