@@ -31,8 +31,8 @@ export class WebSocketService {
   connect(): void {
     const socket = new SockJS(this.API_URL);
     this.stompClient = Stomp.over(socket);
-    this.stompClient.connect({}, function (frame: any) {
-      console.log('Connected: ' + frame);
+    this.stompClient.connect({}, () => {
+      console.log('Connected to: ' + this.API_URL);
     });
   }
 
