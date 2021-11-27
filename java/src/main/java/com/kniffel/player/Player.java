@@ -13,17 +13,17 @@ public class Player {
     private boolean connected = true;
 
     public Player() {
-        points[6] = 0;
-        points[7] = 0;
-        points[8] = 0;
+        this.points[6] = 0;
+        this.points[7] = 0;
+        this.points[8] = 0;
 
-        points[16] = 0;
-        points[17] = 0;
-        points[18] = 0;
+        this.points[16] = 0;
+        this.points[17] = 0;
+        this.points[18] = 0;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -31,7 +31,7 @@ public class Player {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -39,7 +39,7 @@ public class Player {
     }
 
     public int getGameId() {
-        return gameId;
+        return this.gameId;
     }
 
     public void setGameId(int gameId) {
@@ -47,7 +47,7 @@ public class Player {
     }
 
     public boolean isHost() {
-        return host;
+        return this.host;
     }
 
     public void setHost(boolean host) {
@@ -55,7 +55,7 @@ public class Player {
     }
 
     public Integer[] getPoints() {
-        return points;
+        return this.points;
     }
 
     public void setPoints(Integer[] points) {
@@ -67,15 +67,15 @@ public class Player {
     }
 
     public Integer getPointsAt(int index) {
-        return points[index];
+        return this.points[index];
     }
 
     public Integer getTotalPoints() {
-        return points[18];
+        return this.points[18];
     }
 
     public Integer getPlace() {
-        return place;
+        return this.place;
     }
 
     public void setPlace(Integer place) {
@@ -103,12 +103,12 @@ public class Player {
 
         Arrays.fill(points, null);
 
-        points[6] = 0;
-        points[7] = 0;
-        points[8] = 0;
-        points[16] = 0;
-        points[17] = 0;
-        points[18] = 0;
+        this.points[6] = 0;
+        this.points[7] = 0;
+        this.points[8] = 0;
+        this.points[16] = 0;
+        this.points[17] = 0;
+        this.points[18] = 0;
     }
 
     public void calculateScores() {
@@ -116,40 +116,40 @@ public class Player {
         int sumBottom = 0;
 
         for (int i = 0; i < 6; i++) {
-            if(points[i] != null) {
-                sumTop += points[i];
+            if(this.points[i] != null) {
+                sumTop += this.points[i];
             }
         }
-        points[6] = sumTop;
+        this.points[6] = sumTop;
 
         if(sumTop >= 63) {
-            points[7] = 35;
+            this.points[7] = 35;
         }
 
-        points[8] = points[7] + sumTop;
+        this.points[8] = this.points[7] + sumTop;
 
         for (int i = 9; i < 16; i++) {
-            if(points[i] != null) {
-                sumBottom += points[i];
+            if(this.points[i] != null) {
+                sumBottom += this.points[i];
             }
         }
 
-        points[16] = sumBottom;
-        points[17] = points[8];
-        points[18] = sumBottom + sumTop;
+        this.points[16] = sumBottom;
+        this.points[17] = this.points[8];
+        this.points[18] = this.points[16] + this.points[17];
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", gameId=" + gameId +
-                ", host=" + host +
-                ", points=" + Arrays.toString(points) +
-                ", place=" + place +
-                ", sessionId='" + sessionId + '\'' +
-                ", connected=" + connected +
+                "name='" + this.name + '\'' +
+                ", id=" + this.id +
+                ", gameId=" + this.gameId +
+                ", host=" + this.host +
+                ", points=" + Arrays.toString(this.points) +
+                ", place=" + this.place +
+                ", sessionId='" + this.sessionId + '\'' +
+                ", connected=" + this.connected +
                 '}';
     }
 }
