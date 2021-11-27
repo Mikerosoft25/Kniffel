@@ -104,8 +104,6 @@ public class Game {
         this.playerTurn = (playerTurn + 1) % getPlayerCount();
         this.rollCount = 3;
 
-        System.out.println("round: " + this.roundCount);
-
         if (this.playerTurn == 0) {
             this.roundCount++;
 
