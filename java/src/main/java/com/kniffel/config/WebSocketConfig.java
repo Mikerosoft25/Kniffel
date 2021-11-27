@@ -18,7 +18,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/kniffel")
+        registry.addEndpoint("/kniffel/api")
                 .setAllowedOrigins("http://localhost:4200")
                 .withSockJS();
     }
