@@ -10,3 +10,4 @@ RUN npm run build --prod
 # Stage 2
 FROM nginx:1.20-alpine
 COPY --from=build-step /app/dist/kniffel /usr/share/nginx/html
+EXPOSE 80 443

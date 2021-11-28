@@ -13,8 +13,6 @@ services:
     container_name: "kniffel-java-container"
     networks:
       - kniffelbridge
-    ports:
-      - "8082:8080"
 
   kniffel-angular:
     build:
@@ -24,7 +22,19 @@ services:
     container_name: "kniffel-angular-container"
     networks:
       - kniffelbridge
-    ports:
-      - "4200:80"
     depends_on:
       - kniffel-java
+
+  kniffel-reverse-proxy:
+    build:
+      context: "reverse-proxy"
+      dockerfile: "Dockerfile"
+    image: "kniffel-reverse-proxy"
+    container_name: "kniffel-reverse-proxy-container"
+    networks:
+      - kniffelbridge
+    ports:
+      - "8083:80"
+    depends_on:
+      - kniffel-java
+      - kniffel-angular
