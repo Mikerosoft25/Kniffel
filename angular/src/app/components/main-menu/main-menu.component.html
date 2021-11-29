@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div id="gameSelectorContainer">
+<div id="gameSelectorContainer" (keyup.enter)="enterPressed()">
   <div id="nameContainer">
     <input id="nameInput" type="text" name="name" [(ngModel)]="name" placeholder="Namen eingeben...">
   </div>

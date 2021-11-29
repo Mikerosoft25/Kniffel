@@ -57,4 +57,13 @@ export class MainMenuComponent implements OnInit {
   joinGame() {
     this.webSocketService.joinGame(this.name, this.gameId);
   }
+
+  enterPressed() {
+    console.log(this.name, this.gameId);
+    if (this.gameId) {
+      this.joinGame();
+    } else {
+      this.createGame();
+    }
+  }
 }
