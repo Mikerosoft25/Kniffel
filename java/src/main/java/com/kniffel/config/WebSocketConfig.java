@@ -20,7 +20,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/api")
                 .setAllowedOrigins("http://localhost:4200", "http://localhost:8083", "https://manakee.de")
-//                .setAllowedOriginPatterns("*")
                 .withSockJS();
     }
 }
