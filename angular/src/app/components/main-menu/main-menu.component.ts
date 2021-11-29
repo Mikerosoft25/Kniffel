@@ -59,7 +59,6 @@ export class MainMenuComponent implements OnInit {
   }
 
   enterPressed() {
-    console.log(this.name, this.gameId);
     if (this.gameId) {
       this.joinGame();
     } else {
