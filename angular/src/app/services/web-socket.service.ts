@@ -86,7 +86,7 @@ export class WebSocketService {
       host: false
     }
 
-    this.stompClient.send("/app/game/join/" + this.gameId, {}, JSON.stringify({ "player": this.player }));
+    this.stompClient.send("/app/game/join/" + this.gameId, {}, JSON.stringify({ "player": this.player, "requesterUUID": this.UUID }));
   }
 
   subscribeToGame(gameId: number): void {
