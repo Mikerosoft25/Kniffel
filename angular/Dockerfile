@@ -10,4 +10,5 @@ RUN npm run build:release
 # Stage 2
 FROM nginx:1.23.1-alpine
 COPY --from=build-step /app/dist/kniffel /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80 443
