@@ -7,6 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  USER_NAME: mikerosoft25
   JAVA_IMAGE_NAME: kniffel-java
   ANGULAR_IMAGE_NAME: kniffel-angular
   REVERSE_PROXY_IMAGE_NAME: kniffel-reverse-proxy
@@ -32,7 +33,7 @@ jobs:
         with:
           context: ./java
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.JAVA_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.USER_NAME }}/${{ env.JAVA_IMAGE_NAME }}:latest
 
   build-and-push-angular-image:
     runs-on: ubuntu-latest
@@ -54,7 +55,7 @@ jobs:
         with:
           context: ./angular
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.ANGULAR_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.USER_NAME }}/${{ env.ANGULAR_IMAGE_NAME }}:latest
 
   build-and-push-reverse-proxy-image:
     runs-on: ubuntu-latest
@@ -76,4 +77,4 @@ jobs:
         with:
           context: ./reverse-proxy
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.REVERSE_PROXY_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.USER_NAME }}/${{ env.REVERSE_PROXY_IMAGE_NAME }}:latest
