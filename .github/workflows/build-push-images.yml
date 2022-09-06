@@ -32,7 +32,7 @@ jobs:
         with:
           context: ./java
           push: true
-          tags: ${{ env.JAVA_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.JAVA_IMAGE_NAME }}:latest
 
   build-and-push-angular-image:
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
         with:
           context: ./angular
           push: true
-          tags: ${{ env.ANGULAR_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.ANGULAR_IMAGE_NAME }}:latest
 
   build-and-push-reverse-proxy-image:
     runs-on: ubuntu-latest
@@ -76,4 +76,4 @@ jobs:
         with:
           context: ./reverse-proxy
           push: true
-          tags: ${{ env.REVERSE_PROXY_IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.REVERSE_PROXY_IMAGE_NAME }}:latest
