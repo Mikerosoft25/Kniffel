@@ -1,0 +1,79 @@
+name: Build and push images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  JAVA_IMAGE_NAME: kniffel-java
+  ANGULAR_IMAGE_NAME: kniffel-angular
+  REVERSE_PROXY_IMAGE_NAME: kniffel-reverse-proxy
+
+jobs:
+  build-and-push-java-image:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./java
+          push: true
+          tags: ${{ env.JAVA_IMAGE_NAME }}:latest
+
+  build-and-push-angular-image:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./angular
+          push: true
+          tags: ${{ env.ANGULAR_IMAGE_NAME }}:latest
+
+  build-and-push-reverse-proxy-image:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./reverse-proxy
+          push: true
+          tags: ${{ env.REVERSE_PROXY_IMAGE_NAME }}:latest
