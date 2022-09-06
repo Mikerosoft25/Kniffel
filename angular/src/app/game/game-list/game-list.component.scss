@@ -1,0 +1,91 @@
+.game-list-wrapper {
+  width: 800px;
+  margin-top: 20px;
+  margin-left: 20px;
+
+  .game-list-header {
+    width: 800px;
+
+    p {
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+
+    div {
+      display: flex;
+    }
+
+    .create-btn {
+      flex: 1;
+    }
+
+    .join-btn {
+      flex: 1;
+    }
+  }
+
+  table {
+    border-spacing: 0;
+    width: 100%;
+    border: 2px solid var(--color-dark-blue);
+    border-radius: 5px;
+
+    th {
+      background-color: var(--color-dark-blue);
+      height: 45px;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: unset;
+    }
+
+    th.game-id-col {
+      width: 16.6%;
+    }
+
+    th.game-host-col {
+      width: 16.6%;
+    }
+
+    th.round-col {
+      width: 16.6%;
+    }
+
+    th.status-col {
+      width: 16.6%;
+    }
+
+    th.player-count-col {
+      width: 16.6%;
+    }
+
+    th.join-btn-col {
+      width: 16.6%;
+    }
+
+    td {
+      height: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    tr {
+      height: 40px;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f8f6ff;
+    }
+
+    .join-btn {
+      color: white;
+      height: 30px;
+      width: 60px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--color-dark-blue);
+    }
+  }
+}

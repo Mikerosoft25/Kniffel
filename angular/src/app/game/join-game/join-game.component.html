@@ -1,0 +1,16 @@
+<div class="join-game-wrapper">
+  <p class="join-game-header">Join a game</p>
+  <div class="input-wrapper">
+    <label for="player-name">Name:</label>
+    <input
+      type="text"
+      name="player-name"
+      [(ngModel)]="playerName"
+      maxlength="10"
+    />
+
+    <label for="game-id">Game-ID:</label>
+    <input type="text" name="game-id" [(ngModel)]="gameId" maxlength="5" />
+  </div>
+  <button class="join-game-btn" (click)="joinGame()">Join</button>
+</div>

@@ -1,46 +1,35 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import {RouterModule} from "@angular/router";
-import { LobbyComponent } from './components/lobby/lobby.component';
-import { PlayerListComponent } from './components/player-list/player-list.component';
-import { GameComponent } from './components/game/game.component';
-import { DiceComponent } from './components/dice/dice.component';
-import { TableDefinitionColumnComponent } from './components/table-definition-column/table-definition-column.component';
-import { TablePlayerColumnComponent } from './components/table-player-column/table-player-column.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { GameModule } from './game/game.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/games', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainMenuComponent,
-    LobbyComponent,
-    PlayerListComponent,
-    GameComponent,
-    DiceComponent,
-    TableDefinitionColumnComponent,
-    TablePlayerColumnComponent
+    PageNotFoundComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: MainMenuComponent },
-      { path: 'lobby/:gameId', component: LobbyComponent },
-      { path: 'game/:gameId', component: GameComponent }
-    ]),
-    BrowserAnimationsModule,
-    MatSnackBarModule
+    HttpClientModule,
+    GameModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

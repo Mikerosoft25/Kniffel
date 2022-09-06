@@ -1,0 +1,14 @@
+package com.mike.kniffel.common;
+
+public enum WebSocketResponseMessageType {
+  ERROR,
+  PLAYER_CONNECTED,
+  PLAYER_DISCONNECTED,
+  PLAYER_KICKED,
+  PLAYER_IS_NOW_HOST,
+  GAME_STARTED,
+  GAME_RESTARTED,
+  DICE_CLICKED,
+  DICE_ROLLED,
+  TABLE_CELL_CLICKED
+}

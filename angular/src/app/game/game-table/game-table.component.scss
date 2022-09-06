@@ -1,0 +1,38 @@
+table,
+th,
+td {
+  border: 2px solid var(--color-gray);
+  border-collapse: collapse;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 20px auto;
+
+  tr {
+    height: 30px;
+  }
+
+  th:first-child {
+    width: 200px;
+  }
+
+  th:not(:first-child) {
+    width: 150px;
+  }
+
+  .boldText {
+    font-weight: bold;
+  }
+
+  .extraBoldText {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+  .clickable:hover {
+    background-color: lightblue;
+  }
+}

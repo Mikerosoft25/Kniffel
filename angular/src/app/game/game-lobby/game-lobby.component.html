@@ -1,0 +1,17 @@
+<div class="lobby-wrapper" *ngIf="game">
+  <p class="game-header">Game #{{ game.id }}</p>
+  <div class="player-btn-wrapper">
+    <p>Players</p>
+    <button class="start-btn" (click)="startGame(game.id)">Start game</button>
+  </div>
+  <div class="player-wrapper" *ngFor="let rowPlayer of game.players">
+    <div class="player-name">{{ rowPlayer.name }}</div>
+    <div
+      class="cross-btn"
+      *ngIf="player.host && rowPlayer.id !== player.id"
+      (click)="kickPlayer(rowPlayer)"
+    >
+      &#10006;
+    </div>
+  </div>
+</div>

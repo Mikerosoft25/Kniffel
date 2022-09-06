@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <th></th>
+    <th *ngFor="let player of players">
+      {{ player.name }}
+    </th>
+  </tr>
+  <tr *ngFor="let rowDef of rowDefinitons; let row = index">
+    <td
+      [ngClass]="{
+        boldText: [6, 7, 8, 16, 17].includes(row),
+        extraBoldText: row === 18
+      }"
+    >
+      {{ rowDef }}
+    </td>
+    <td
+      *ngFor="let colPlayer of players; let col = index"
+      (click)="cellClicked(row, col)"
+      [ngClass]="{
+        boldText: [6, 7, 8, 16, 17].includes(row),
+        extraBoldText: row === 18,
+        clickable:
+          ![6, 7, 8, 16, 17, 18].includes(row) &&
+          colPlayer.points[row] === -1 &&
+          player.id === colPlayer.id &&
+          player.id === playerAtTurn.id
+      }"
+    >
+      {{ colPlayer.points[row] !== -1 ? colPlayer.points[row] : "" }}
+    </td>
+  </tr>
+</table>

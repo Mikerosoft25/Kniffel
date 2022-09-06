@@ -1,0 +1,9 @@
+<div class="main-menu-wrapper">
+  <div class="create-join-wrapper">
+    <app-create-game></app-create-game>
+    <app-join-game [gameId]="joinGameId"></app-join-game>
+  </div>
+  <div class="game-list-wrapper">
+    <app-game-list [games]="games" (joinGameId)="changeJoinGameId($event)"></app-game-list>
+  </div>
+</div>

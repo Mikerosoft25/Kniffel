@@ -1,0 +1,18 @@
+<form #createGameForm="ngForm" (ngSubmit)="createGame()">
+  <div class="create-game-wrapper">
+    <p class="create-game-header">Create a new game</p>
+    <div class="input-wrapper">
+      <label for="user-name">Name:</label>
+      <input
+        type="text"
+        name="user-name"
+        [(ngModel)]="playerName"
+        required="true"
+        maxlength="10"
+      />
+    </div>
+    <button type="submit" name="submit-btn" class="create-game-btn">
+      Create
+    </button>
+  </div>
+</form>

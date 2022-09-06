@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  kniffelbridge:
+  kniffel-bridge:
     driver: bridge
 
 services:
@@ -12,7 +12,7 @@ services:
     image: "kniffel-java"
     container_name: "kniffel-java-container"
     networks:
-      - kniffelbridge
+      - kniffel-bridge
 
   kniffel-angular:
     build:
@@ -21,7 +21,7 @@ services:
     image: "kniffel-angular"
     container_name: "kniffel-angular-container"
     networks:
-      - kniffelbridge
+      - kniffel-bridge
     depends_on:
       - kniffel-java
 
@@ -32,7 +32,7 @@ services:
     image: "kniffel-reverse-proxy"
     container_name: "kniffel-reverse-proxy-container"
     networks:
-      - kniffelbridge
+      - kniffel-bridge
     ports:
       - "8083:80"
     depends_on:

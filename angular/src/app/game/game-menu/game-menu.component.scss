@@ -1,0 +1,14 @@
+.main-menu-wrapper {
+  display: flex;
+}
+
+.create-join-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 33%;
+  align-items: flex-end;
+}
+
+.game-list-wrapper {
+  flex: 67%;
+}

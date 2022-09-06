@@ -1,0 +1,25 @@
+<div class="game-list-wrapper">
+  <table>
+    <tr>
+      <th class="game-id-col">Game-ID</th>
+      <th class="game-host-col">Host</th>
+      <th class="round-col">Round</th>
+      <th class="status-col">Status</th>
+      <th class="player-count-col">Player Count</th>
+      <th class="joint-btn-col"></th>
+    </tr>
+    <tr *ngFor="let game of games">
+      <td>{{ game.id }}</td>
+      <td>{{ game.players[0].name }}</td>
+      <td>{{ game.round ? game.round : "-" }}/19</td>
+      <td>{{ game.status }}</td>
+      <td>{{ game.players.length }}/8</td>
+      <td>
+        <button class="join-btn" (click)="joinGame(game)">Join</button>
+      </td>
+    </tr>
+    <tr *ngIf="games.length === 0" class="no-games-message">
+      <td colspan="5">There are currently no games in progress</td>
+    </tr>
+  </table>
+</div>

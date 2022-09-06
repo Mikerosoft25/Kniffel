@@ -1,0 +1,21 @@
+header {
+  background-color: var(--color-dark-blue);
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 2rem;
+
+  a,
+  a:focus,
+  a:active,
+  a:visited,
+  a:link {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,56 @@
+/* The snackbar - position it at the bottom and in the middle of the screen */
+.snackbar { /* Hidden by default. Visible on click */
+  height: 50px;
+  visibility: hidden;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-dark-blue);
+  padding: 16px 5px 16px 16px;
+  color: white;
+  display: flex;
+  z-index: 1;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.snackbar-text {
+  font-size: 1rem;
+}
+
+.snackbar-btn {
+  border: none;
+  background-color: white;
+  height: 40px;
+  width: 50px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin-left: 16px;
+}
+
+.snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

@@ -1,0 +1,38 @@
+<div class="game-top-wrapper">
+  <ng-container *ngIf="game.status !== gameStatus.ENDED">
+    <div class="dice-wrapper">
+      <div *ngFor="let dice of game.dices">
+        <app-dice
+          [dice]="dice"
+          [enabled]="playerAtTurn.id === player.id"
+          (click)="changeDiceLock(game.id, dice.index)"
+        ></app-dice>
+      </div>
+    </div>
+
+    <div class="roll-info-wrapper">
+      <p>{{ playerAtTurn.name }}'s turn</p>
+      <p>Remaining rolls: {{ game.rollCount }}</p>
+      <button class="roll-dice-btn" (click)="rollDice(game.id)">
+        Roll Dice
+      </button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="game.status === gameStatus.ENDED && scoreboard">
+    <div class="scoreboard-wrapper">
+      <p class="scoreboard-text">Scoreboard:</p>
+      <p class="first-place" *ngIf="scoreboard.length >= 1">1. {{ scoreboard[0] }}</p>
+      <p class="second-place" *ngIf="scoreboard.length >= 2">2. {{ scoreboard[1] }}</p>
+      <p class="third-place" *ngIf="scoreboard.length >= 3">3. {{ scoreboard[2] }}</p>
+
+      <button class="dark-blue-btn return-to-lobby-btn" (click)="returnToLobby(game.id)">Return to Lobby</button>
+    </div>
+  </ng-container>
+</div>
+
+<app-game-table
+  [players]="game.players"
+  [player]="player"
+  [playerAtTurn]="playerAtTurn"
+  (onCellClick)="clickTableCell(game.id, $event)"
+></app-game-table>
