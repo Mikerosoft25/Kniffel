@@ -7,7 +7,7 @@ import { Dice } from 'src/app/models/model';
   styleUrls: ['./dice.component.scss'],
 })
 export class DiceComponent implements OnInit {
-  private IMAGES_PATH: string = '/assets/images';
+  private IMAGES_PATH: string = './assets/images';
   imageSrc: string = this.IMAGES_PATH + '/dice_1.png';
 
   @Input() dice!: Dice;
