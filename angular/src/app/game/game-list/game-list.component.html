@@ -6,7 +6,11 @@
       <th class="round-col">Round</th>
       <th class="status-col">Status</th>
       <th class="player-count-col">Player Count</th>
-      <th class="joint-btn-col"></th>
+      <th class="btn-col">
+        <button (click)="refreshGameList()" class="refresh-btn">
+          <img [src]="refreshImagePath" [ngClass]="{ spin: refreshing }" />
+        </button>
+      </th>
     </tr>
     <tr *ngFor="let game of games">
       <td>{{ game.id }}</td>
