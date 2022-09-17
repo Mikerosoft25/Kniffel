@@ -286,7 +286,7 @@ public class GameService {
     game.unlockAllDice();
     game.setRollCount(3);
     if (game.getPlayerTurn() == game.getPlayers().size() - 1) {
-      if (game.getRound() == 2) {
+      if (game.getRound() == 13) {
         game.setStatus(GameStatus.ENDED);
       } else {
         game.setRound(game.getRound() + 1);
